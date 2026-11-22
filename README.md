@@ -188,7 +188,7 @@ A green first run prints every step, then the summary (the starter feature of `n
 ```
 3 scenarios (3 passed)
 13 steps (13 passed)
-0m05.000s (executing steps: 0m05.000s)
+0m09.000s (executing steps: 0m09.000s)
 [webship-js] HTML report → …/bbpress-tests/tests/reports/cucumber_report.html
 ```
 
@@ -198,6 +198,7 @@ From there, copy the features of [`tests/features/`](tests/features/) (they also
 
 The features of this repository run every step of the pack against the test site, twice in a row in CI on every change, then the assertions that must fail:
 
+- **`accessibility.feature`**: an accessibility audit of the pages a visitor reads (a category, a forum, a topic and its second page, a view, a profile): no critical violation, a declared language, one main heading.
 - **`forum-index.feature`**: the public forums under their category, the counters and marks of the index, a category and its forums, a forum's list in its order (the super sticky topic, the sticky one, the closed one), the row of a topic (author, replies, voices), a forum of two pages, a visitor asked to log in before posting, a closed forum.
 - **`topics.feature`**: a topic read by a visitor (its posts, their authors and forum roles, its tags), a topic of two pages, a closed topic, a participant starting a topic with tags and a moderator replying, the refusals of an empty topic and an empty reply, the editor's toolbar, an edit with its reason in the edit log.
 - **`subscriptions-and-favorites.feature`**: a favorite marked and unmarked, a subscription to a topic and to a forum removed from the profile, a spectator who may not reply but may mark a favorite, the lists of the profile.
@@ -209,6 +210,8 @@ The features of this repository run every step of the pack against the test site
 - **`notifications.feature`**: the mail a subscriber of a topic gets of a reply (and its author does not), the mail a subscriber of a forum gets of a new topic, no mail when nobody follows.
 
 Every scenario that makes a topic removes it again (deleted for good, with its replies), a setting or a forum role it changes it puts back, and a favorite or a subscription it adds it removes: the suite leaves the site as it found it.
+
+The accessibility audit leaves out the pages that carry a search field of the forums (the forum index, the search page, the page of a topic tag, the lists of a profile) and the topic and reply forms: on bbPress 2.6.22 the search field's label is hidden from every reader and the editor has no label, which the audit reports as critical (`label`). A site that fixes them in its theme can audit those pages with webship-js's own step, `Then the page should have no critical accessibility violations`.
 
 Not tested: threaded replies (the setting is off, as the plugin sets it), anonymous posting (off by default; the suite would have to post as a guest), the visual editor of a post (the forums print the plain editor with its toolbar), per-forum moderators, the forums' widgets, shortcodes and blocks on other pages of the site, the importers of Tools > Forums, the forums' feeds, and Akismet's spam check (it needs an account).
 
