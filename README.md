@@ -59,7 +59,7 @@ that must fail; see [The test site](#the-test-site) and
 
 ## From nothing to a green run
 
-What the machine needs: Docker, [DDEV](https://ddev.com), git, python3, and Node.js 20 or later with npm. PHP, WP-CLI, the database and the mail catcher run in DDEV's containers.
+What the machine needs: Docker, [DDEV](https://ddev.com), git, python3, and Node.js 24 or later with npm. PHP, WP-CLI, the database and the mail catcher run in DDEV's containers.
 
 **1. The site.** The pack's own build script (the one CI runs) makes the site in a DDEV project of type `wordpress`: the latest WordPress, bbPress from the plugin directory, the theme WordPress installs with, the six accounts of [Test users](#test-users) and the test content (see [The test site](#the-test-site)). It takes about two minutes.
 
@@ -217,7 +217,7 @@ Not tested: threaded replies (the setting is off, as the plugin sets it), anonym
 
 ## Requirements
 
-- Node.js 20 or later
+- Node.js 24 or later
 - A webship-js 2.0 test project (webship-js 2.0.16 or later)
 - A site on WordPress with bbPress 2.6, and accounts on it for the suite
 
