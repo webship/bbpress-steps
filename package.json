@@ -1,6 +1,6 @@
 {
   "name": "@webship-js/bbpress-steps",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Cucumber step definitions for forums on WordPress with bbPress, a plugin for webship-js (Playwright and Cucumber): the forum index, a forum and its topics, a topic and its posts, the topic and reply forms (tags, formatting, an edit with its reason), subscriptions and favorites, the forum profile, the forum search, topic tags and views, moderation (close, stick, approve, spam, trash, merge, split, move), what each forum role may do, the forums' administration screens and settings, and the notification e-mails. It brings @webship-js/wordpress-steps along for the login and the administration area.",
   "main": "tests/step-definitions/bbpress-defaults.js",
   "files": [
